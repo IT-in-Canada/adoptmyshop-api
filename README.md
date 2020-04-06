@@ -7,3 +7,6 @@
 
 # TODO
 - Add production URL to enable CORS properly
+
+# Project documentation
+- Overall documentation can be found [here](https://github.com/IT-in-Canada/adoptmyshop-docs)
