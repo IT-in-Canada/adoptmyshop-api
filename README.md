@@ -1,5 +1,20 @@
 # API
 
+## Routes
+
+### main endpoint
+/
+
+### shops endpoint
+
+```
+GET /shops
+GET /shops/:shopId
+POST /shops
+PATCH /shops/:shopId
+DELETE /shops/:shopId
+```
+
 # Environment setup
 - Rename the .env.template to .env
 - Fill the variables
