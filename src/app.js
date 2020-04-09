@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 //Routes
 const shopRoutes = require("./routes/shops");
+const userRoutes = require("./routes/user.js");
 
 if (!process.env.MONGO_ATLAS_URL) throw new Error("Please check the Readme file and setup your environment")
 mongoose.connect(process.env.MONGO_ATLAS_URL, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -33,6 +34,11 @@ app.get('/', (req, res) => {
     res.send('Hello from index')
 })
 app.use("/shops", shopRoutes);
+
+
+// it calls user routes
+app.use("/user", userRoutes);
+
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
