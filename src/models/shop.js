@@ -13,6 +13,10 @@ const shopSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    province:{
+        type: String,
+        required: true
+    },
     zip_code:{
         type: String,
         required: true
@@ -27,6 +31,8 @@ const shopSchema = mongoose.Schema({
     },
     email:{
         type: String,
+        lowercase: true,
+        trim: true,
         required: false
     },
     description: {
@@ -43,7 +49,7 @@ const shopSchema = mongoose.Schema({
     },
     featured_image: {
         type: String,
-        required: false
+        required: true
     },
     images:{
         type: Array,
@@ -59,9 +65,6 @@ const shopSchema = mongoose.Schema({
             required: true
         }
     }]
-
-
-
 }, 
 { timestamps: true });
 
