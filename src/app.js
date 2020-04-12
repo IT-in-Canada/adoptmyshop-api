@@ -4,16 +4,17 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-//Routes
-const shopRoutes = require("./routes/shops");
-
+//Database
 if (!process.env.MONGO_ATLAS_URL) throw new Error("Please check the Readme file and setup your environment")
 mongoose.connect(process.env.MONGO_ATLAS_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
+//Middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+const jwtCheck = require('./middleware/auth0');
 
+//CORS
 app.use((req, res, next) => {
     //TODO: Make this only to allow requests from *.adoptmyshop.org
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,11 +29,9 @@ app.use((req, res, next) => {
     next();
 });
 
-//Here we load out routes
-app.get('/', (req, res) => {
-    res.send('Hello from index')
-})
-app.use("/shops", shopRoutes);
+//Routes
+const shopRoutes = require("./routes/shops");
+app.use("/shops", jwtCheck, shopRoutes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");

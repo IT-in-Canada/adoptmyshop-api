@@ -1,6 +1,6 @@
 const http = require('http');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const app = require('./app');
 const server = http.createServer(app);
-server.listen(port);
+server.listen(port, () => console.log(`### adoptmyshop-api is running at ${port} port`));
