@@ -15,6 +15,16 @@ PATCH /shops/:shopId
 DELETE /shops/:shopId
 ```
 
+### nominees endpoint
+
+```
+GET /nominees
+GET /nominees/:nomineeId
+POST /nominees
+PATCH /nominees/:nomineeId
+DELETE /nominees/:nomineeId
+```
+
 # Environment setup
 - Rename the .env.template to .env
 - Fill the variables
