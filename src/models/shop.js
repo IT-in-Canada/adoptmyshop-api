@@ -29,12 +29,6 @@ const shopSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    email:{
-        type: String,
-        lowercase: true,
-        trim: true,
-        required: false
-    },
     description: {
         type: String,
         required: true
@@ -55,7 +49,7 @@ const shopSchema = mongoose.Schema({
         type: Array,
         default: []
     },
-    support_options:[{
+    support_sales_options:[{
         type: { 
             type: String,
             required: true
