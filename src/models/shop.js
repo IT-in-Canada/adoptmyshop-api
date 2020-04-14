@@ -1,39 +1,39 @@
 const mongoose = require('mongoose');
 
 const shopSchema = mongoose.Schema({
-    name: {
+    business_name: {
         type: String,
         required: true
     },
-    address:{
+    business_address:{
         type: String,
         required: true
     },
-    city:{
+    business_city:{
         type: String,
         required: true
     },
-    province:{
+    business_province:{
         type: String,
         required: true
     },
-    zip_code:{
+    business_zip_code:{
         type: String,
         required: true
     },
-    country: {
+    business_country: {
         type: String,
         required: true
     },
-    phone: {
+    business_phone: {
         type: String,
         required: true
     },
-    description: {
+    business_description: {
         type: String,
         required: true
     },
-    tags:{
+    business_tags:{
         type: Array, 
         default: [] 
     },

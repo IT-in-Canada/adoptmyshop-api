@@ -67,7 +67,7 @@ const nomineeSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    tags:{
+    business_tags:{
         type: Array, 
         default: [] 
     },
