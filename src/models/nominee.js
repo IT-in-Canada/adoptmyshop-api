@@ -103,10 +103,16 @@ const nomineeSchema = mongoose.Schema({
             required: true
         }
     }],
-    story_features_link:{
-        type: String,
-        required: false
-    },
+    story_features_link:[{
+        type: { 
+            type: String,
+            required: true
+        },
+        link: {
+            type: String,
+            required: true
+        }
+    }],
     social_posts:[{
         key_messaging:{
             type: String,
