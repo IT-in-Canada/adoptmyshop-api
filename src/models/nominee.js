@@ -137,7 +137,7 @@ const nomineeSchema = mongoose.Schema({
     },
     support_language:[{
         language:{
-            type: String,
+            type: Array,
             required: false
         }
     }],
