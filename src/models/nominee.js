@@ -43,7 +43,6 @@ const nomineeSchema = mongoose.Schema({
         type: String,
         required: false
     },
-
     business_address:{
         type: String,
         required: false
@@ -68,9 +67,9 @@ const nomineeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    cuisine_offered:{
-        type: String,
-        required: false
+    tags:{
+        type: Array, 
+        default: [] 
     },
     products_offered:[{
         product:{
@@ -131,7 +130,11 @@ const nomineeSchema = mongoose.Schema({
             type: String,
             required: false
         }
-    }]
+    }],
+    validation_history:{
+        type: String,
+        required: false
+    }
 },
 { timestamps: true });
 
