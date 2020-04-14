@@ -65,7 +65,7 @@ const nomineeSchema = mongoose.Schema({
     },
     business_phone: {
         type: String,
-        required: true
+        required: false
     },
     tags:{
         type: Array, 
