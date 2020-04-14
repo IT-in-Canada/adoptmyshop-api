@@ -71,12 +71,10 @@ const nomineeSchema = mongoose.Schema({
         type: Array, 
         default: [] 
     },
-    products_offered:[{
-        product:{
-            type: String,
-            required: false
-        }
-    }],
+    products_offered:{
+        type: Array,
+        required: false
+    },
     support_sales_options:[{
         type: { 
             type: String,
