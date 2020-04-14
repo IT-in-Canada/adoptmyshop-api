@@ -93,10 +93,16 @@ const nomineeSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    reference_materials:{
-        type: String,
-        required: false
-    },
+    reference_materials:[{
+        type: { 
+            type: String,
+            required: true
+        },
+        link: {
+            type: String,
+            required: true
+        }
+    }],
     story_features_link:{
         type: String,
         required: false
