@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const nomineeSchema = mongoose.Schema({
     business_name:{
-        type:   String,
-        required:   true
+        type: String,
+        required: true
     },
     business_url:{
         type: String,
@@ -25,7 +25,7 @@ const nomineeSchema = mongoose.Schema({
     },
     nominator_facebook_url:{
         type: String,
-        required:false
+        required: false
     },
     nominator_twitter_url:{
         type: String,
@@ -67,22 +67,28 @@ const nomineeSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    business_email: {
+        type: String,
+        required: false
+    },
     business_tags:{
         type: Array, 
-        default: [] 
+        default: [],
+        require: false
     },
     products_offered:{
         type: Array,
+        default: [],
         required: false
     },
     support_sales_options:[{
         type: { 
             type: String,
-            required: true
+            required: false
         },
         link: {
             type: String,
-            required: true
+            required: false
         }
     }],
     mention:{
@@ -96,21 +102,21 @@ const nomineeSchema = mongoose.Schema({
     reference_materials:[{
         type: { 
             type: String,
-            required: true
+            required: false
         },
         link: {
             type: String,
-            required: true
+            required: false
         }
     }],
     story_features_link:[{
         type: { 
             type: String,
-            required: true
+            required: false
         },
         link: {
             type: String,
-            required: true
+            required: false
         }
     }],
     social_posts:[{
@@ -125,7 +131,7 @@ const nomineeSchema = mongoose.Schema({
     }],
     featured_image: {
         type: String,
-        required: true
+        required: false
     },
     images:{
         type: Array,
@@ -135,12 +141,12 @@ const nomineeSchema = mongoose.Schema({
         type: Boolean,
         default: true
     },
-    support_language:[{
-        language:{
-            type: Array,
-            required: false
-        }
-    }],
+    support_language:{
+        type: Array,
+        default: [
+            "english"
+        ],
+    },
     validation_history:{
         type: String,
         required: false
