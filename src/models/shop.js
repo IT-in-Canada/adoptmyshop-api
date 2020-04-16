@@ -29,6 +29,10 @@ const shopSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    business_email: {
+        type: String,
+        required: true
+    },
     business_description: {
         type: String,
         required: true
@@ -39,7 +43,7 @@ const shopSchema = mongoose.Schema({
     },
     active: {
         type: Boolean,
-        default: true
+        default: false
     },
     featured_image: {
         type: String,
@@ -58,7 +62,11 @@ const shopSchema = mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    nominee_id: {
+        type: String,
+        require: true
+    }
 }, 
 { timestamps: true });
 
