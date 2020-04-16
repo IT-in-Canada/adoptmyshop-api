@@ -9,7 +9,9 @@ module.exports = {
     async findById(req, res, next) {
         const id = req.params.nomineeId;
         const result = await Nominee.findById(id).exec();
-        if (!result) res.status(404).json();
+        if (!result) {
+            res.status(404).json();
+        }
         res.status(200).json(result);
     },
 
@@ -20,7 +22,9 @@ module.exports = {
         }
         const nominee = new Nominee(newNominee);
         var error = nominee.validateSync();
-        if (error) res.status(400).json(error);
+        if (error) {
+            res.status(400).json(error);
+        }
         const result = await nominee.save();
         res.status(201).json(result);
     },
@@ -32,14 +36,18 @@ module.exports = {
             updateOps[ops] = req.body[ops];
         }
         const result = await Nominee.updateOne({ _id: id }, updateOps).exec();
-        if (result.n === 0) res.status(404).json();
+        if (result.n === 0) {
+            res.status(404).json();
+        }
         res.status(204).json();
     },
 
     async delete(req, res, next) {
         const id = req.params.nomineeId;
         const result = await Nominee.deleteOne({ _id: id }).exec();
-        if (result.n === 0) res.status(404).json();
+        if (result.n === 0) {
+            res.status(404).json();
+        }
         res.status(204).json();
     }
 }; 

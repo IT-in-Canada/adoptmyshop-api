@@ -9,7 +9,9 @@ module.exports = {
     async findById(req, res, next) {
         const id = req.params.shopId;
         const result = await Shop.findById(id).exec();
-        if (!result) res.status(404).json();
+        if (!result) {
+            res.status(404).json();
+        }
         res.status(200).json(result);
     },
 
@@ -20,7 +22,9 @@ module.exports = {
         }
         const shop = new Shop(newShop);
         var error = shop.validateSync();
-        if (error) res.status(400).json(error);
+        if (error) {
+            res.status(400).json(error);
+        }
         const result = await shop.save();
         res.status(201).json(result);
     },
@@ -32,14 +36,18 @@ module.exports = {
             updateOps[ops] = req.body[ops];
         }
         const result = await Shop.updateOne({ _id: id }, updateOps).exec();
-        if (result.n === 0) res.status(404).json();
+        if (result.n === 0) {
+            res.status(404).json();
+        }
         res.status(204).json();
     },
 
     async delete(req, res, next) {
         const id = req.params.shopId;
         const result = await Shop.deleteOne({ _id: id }).exec();
-        if (result.n === 0) res.status(404).json();
+        if (result.n === 0) {
+            res.status(404).json();
+        }
         res.status(204).json();
     },
 
@@ -54,7 +62,9 @@ module.exports = {
         }
         const shop = new Shop(newShop);
         var error = shop.validateSync();
-        if (error) res.status(400).json(error);
+        if (error) {
+            res.status(400).json(error);
+        }
         const result = await shop.save();
         res.status(201).json(result);
     }
