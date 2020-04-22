@@ -31,7 +31,9 @@ app.use((req, res, next) => {
 
 //Routes
 const shopRoutes = require("./routes/shops");
+const nomineesRoutes = require("./routes/nominees");
 app.use("/shops", jwtCheck, shopRoutes);
+app.use("/nominees", jwtCheck, nomineesRoutes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
